@@ -10,6 +10,8 @@ from typing import Optional
 from backend.extractors.base import IExtractor
 from backend.extractors.ytdlp_extractor import YtDlpExtractor
 from backend.extractors.direct_file_extractor import DirectFileExtractor
+from backend.extractors.tikwm_extractor import TikWMExtractor
+from backend.extractors.instagram_extractor import InstagramExtractor
 from backend.logger import app_logger as log
 
 
@@ -50,5 +52,5 @@ class ExtractorRegistry:
 registry = ExtractorRegistry()
 registry.register(DirectFileExtractor())   # priority 5
 registry.register(YtDlpExtractor())        # priority 10
-# Add custom extractors here:
-# registry.register(MyCustomExtractor())  # priority 15+
+registry.register(TikWMExtractor())        # priority 20
+registry.register(InstagramExtractor())    # priority 20
